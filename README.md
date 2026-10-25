@@ -22,6 +22,11 @@ https://raw.githubusercontent.com/VierAI/DalamudPlugins/main/vierai.json
 | Plugin | Version | Source | Notes |
 |---|---|---|---|
 | **PSync** (PlayerSync, VierAI-fied) | 1.15.5.1209 | [VierAI/MareSynchronosClient](https://github.com/VierAI/MareSynchronosClient) | **!!! YOU MUST UNINSTALL THE OFFICIAL PLAYERSYNC FIRST !!!** |
+| **Customize+** (VierAI-fied) | 2.2.1.304 (testing 2.2.1.305) | [VierAI/CustomizePlus](https://github.com/VierAI/CustomizePlus) | |
+| **XIV Instant Messenger** (VierAI-fied) | 1.5.0.2110 | [VierAI/XIVInstantMessenger](https://github.com/VierAI/XIVInstantMessenger) | |
+| **Chat 2** (VierAI-fied) | 1.40.9.10 | [VierAI/ChatTwo](https://github.com/VierAI/ChatTwo) | |
+| **XIVDeck** (VierAI-fied) | 0.4.5.7 | [VierAI/XIVDeck](https://github.com/VierAI/XIVDeck) | |
+| **Chat Bubbles+** (VierAI-fied) | 2.1.9.2103 | [VierAI/ChatBubbles](https://github.com/VierAI/ChatBubbles) | |
 | *More coming soon* | | | |
 
 ## Credits
