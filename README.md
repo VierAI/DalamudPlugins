@@ -1,17 +1,29 @@
-# VierAI Dalamud Plugins
+<p align="center"><img src="https://github.com/VierAI.png" width="96" alt="VierAI"></p>
 
-> **!!! YOU MUST UNINSTALL THE OFFICIAL PLAYERSYNC FIRST !!!** Running both at once is not supported.
+<h1 align="center">VierAI Dalamud Plugins</h1>
+<p align="center">AI-powered XIV addon forks: features and fixes</p>
 
-> **Disclaimer:** these are unofficial forks. Their changes are AI-generated ("vibe coded"). They are not made, endorsed or supported by the original authors, so please don't ask them for help. Use at your own risk.
+> [!WARNING]
+> **AI "vibe code" disclaimer:** these plugins are AI-assisted forks. They are unofficial and not endorsed by the original authors. Use them at your own risk.
 
-## How to add this repo
+## Add the repo
 
-1. In game, open Dalamud Settings (`/xlsettings`) > **Experimental**.
-2. Under **Custom Plugin Repositories**, paste:
-   `https://raw.githubusercontent.com/VierAI/DalamudPlugins/main/vierai.json`
-3. Click **+**, tick the checkbox, then **Save and Close**.
-4. Uninstall the official PlayerSync, then install **PlayerSync (VierAI-fied)** from the plugin installer.
+```
+https://raw.githubusercontent.com/VierAI/DalamudPlugins/main/vierai.json
+```
+
+1. Type `/xlsettings` in game and open the **Experimental** tab.
+2. Paste the URL into **Custom Plugin Repositories** and click **+**.
+3. Tick **Enabled**, then click **Save and Close**.
+4. Install from `/xlplugins`.
 
 ## Plugins
 
-- **PlayerSync (VierAI-fied)**: https://github.com/VierAI/MareSynchronosClient
+| Plugin | Version | Source | Notes |
+|---|---|---|---|
+| **PSync** (PlayerSync, VierAI-fied) | 1.15.5.1209 | [VierAI/MareSynchronosClient](https://github.com/VierAI/MareSynchronosClient) | **!!! YOU MUST UNINSTALL THE OFFICIAL PLAYERSYNC FIRST !!!** |
+| *More coming soon* | | | |
+
+## Credits
+
+Original plugins belong to their authors. Each fork's README links the original project. Original authors are welcome to reach out about upstreaming changes.
