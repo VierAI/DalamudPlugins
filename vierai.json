@@ -164,33 +164,6 @@
   },
   {
     "Author": "VierAI",
-    "Name": "VierLink",
-    "InternalName": "VierLink",
-    "AssemblyVersion": "0.1.8.2",
-    "Description": "Private debugging tool. Opens an in-game chat window (/vlink) that sends messages to your own bot as direct webhooks, and a token-protected API on 127.0.0.1 so the bot can read cosmetic, UI, plugin and log state. Read-only; no gameplay automation; nothing combat-related.\n\nAI generated code.",
-    "ApplicableVersion": "any",
-    "RepoUrl": "https://github.com/VierAI/VierLink",
-    "Tags": [
-      "Debug",
-      "Tools",
-      "AI"
-    ],
-    "DalamudApiLevel": 15,
-    "LoadRequiredState": 0,
-    "LoadSync": false,
-    "CanUnloadAsync": false,
-    "LoadPriority": 0,
-    "IconUrl": "https://raw.githubusercontent.com/VierAI/VierLink/vierai/vierai/icon.png",
-    "Punchline": "In-game chat window to your own AI bot, plus a localhost-only read-only debug API (AI generated code).",
-    "Changelog": "0.1.8.2: Lighter every-frame captures. Each frame the game thread only reads values; JSON is always built on the writer thread. Penumbra, addons, Glamourer, Customize+ and heels are read at most once a second and written only when they change; /vfx writes only entries new since the previous frame. Each frame records the capture's own cost (selfMs); a frame over frameBudgetMs skips the slow reads on the next frame. Captures are tagged instrumented (file name and job/end lines). Frame times are kept under one lock instead of two. The chat window re-wraps once the width has settled for 100 ms instead of every frame while resizing. Default capture queue cap is now 192 MB. AI generated code.\n\n0.1.8.1: Performance and cleanup. With selectable chat off, the date/time labels are cached per message instead of rebuilt every frame. The selectable history re-wraps when the window width changes. The every-frame capture queue is always bounded (512 MB when MaxCaptureQueueMB is 0). The patch-day summary refreshes off the game thread. The daily chat log (bridge.json ChatLogDir) is now off by default; set a folder to keep it. Docs link points at the public repo. AI generated code.\n\n0.1.8.0: Drag-select in the chat window now covers the whole line, including the timestamp and the You:/Bot: label, and copies it once. Every chat line shows its date and time. A fill bar under the input shows how close the text is to the game's 500-byte chat limit (red when over).",
-    "AcceptsFeedback": false,
-    "DownloadLinkInstall": "https://github.com/VierAI/VierLink/releases/download/v0.1.8.2-vierai/VierLink-0.1.8.2.zip",
-    "DownloadLinkUpdate": "https://github.com/VierAI/VierLink/releases/download/v0.1.8.2-vierai/VierLink-0.1.8.2.zip",
-    "DownloadLinkTesting": "https://github.com/VierAI/VierLink/releases/download/v0.1.8.2-vierai/VierLink-0.1.8.2.zip",
-    "LastUpdate": 1793052023
-  },
-  {
-    "Author": "VierAI",
     "Name": "Friend Status Sweep",
     "InternalName": "FriendSweep",
     "AssemblyVersion": "0.1.1.2",
@@ -244,32 +217,6 @@
     "DownloadLinkInstall": "https://github.com/VierAI/Wholist/releases/download/v1.11.3.103-vierai/Wholist-VierAI-fied-1.11.3.103.zip",
     "DownloadLinkUpdate": "https://github.com/VierAI/Wholist/releases/download/v1.11.3.103-vierai/Wholist-VierAI-fied-1.11.3.103.zip",
     "DownloadLinkTesting": "https://github.com/VierAI/Wholist/releases/download/v1.11.3.103-vierai/Wholist-VierAI-fied-1.11.3.103.zip",
-    "LastUpdate": 1793052023
-  },
-  {
-    "Author": "VierAI",
-    "Name": "VierLink Updater",
-    "InternalName": "VierLinkUpdater",
-    "AssemblyVersion": "0.1.0.13",
-    "Description": "Companion to VierLink. When enabled, VierLink's POST /plugins/update hands a request here; this plugin refreshes the repositories, updates and reloads one allow-listed plugin installed from the VierAI repository, waits while in combat, duties, cutscenes, PvP, crafting or gathering, and sends xiv_plugin_updated to a VierLink webhook target. Off by default. Never updates Dalamud, MareSempiterne or official-repo plugins. Also shows a patch-day status board and offers a known-good-only safe mode that only runs after you confirm it in game.\n\nAI generated code.",
-    "ApplicableVersion": "any",
-    "RepoUrl": "https://github.com/VierAI/VierLinkUpdater",
-    "Tags": [
-      "Tools",
-      "AI"
-    ],
-    "DalamudApiLevel": 15,
-    "LoadRequiredState": 0,
-    "LoadSync": false,
-    "CanUnloadAsync": false,
-    "LoadPriority": 0,
-    "IconUrl": "https://raw.githubusercontent.com/VierAI/VierLinkUpdater/vierai/vierai/icon.png",
-    "Punchline": "Lets VierLink update allow-listed VierAI plugins on request, safely deferred (AI generated code).",
-    "Changelog": "0.1.0.13: Existing installs keep working: on first run the Updater adds the pluginmaster that it and VierLink were installed from to ExtraTrustedSources (once). Patch-day board data is read under a lock, so the IPC report no longer races the game thread, and a running safe-mode or restore loop stops when the plugin unloads. AI generated code.\n\n0.1.0.12: Trusts the public VierAI repository (raw.githubusercontent.com/VierAI/DalamudPlugins/main/vierai.json, downloads under github.com/VierAI/). Extra trusted sources can be added in the config (ExtraTrustedSources, \"pluginmasterUrl|downloadPrefix\"). AI generated code.\n\n0.1.0.11: No plugin updates while a VierLink batch job (a test) runs. Every install, update and reload waits, shown as deferred: batch job running; requests still queue and run one at a time once the job ends. Plugins installed from the VierAI repository can be updated without adding them to the allow-list (setting AllowVierAIRepo, on by default); the deny list still applies. AI generated code.\n\n0.1.0.10: The typing hold applies only to VierLink. A VierLink update waiting for its chat box (deferred: typing) is now parked: it no longer holds the one-job slot, so update requests for every other plugin (Chat 2, XIM, PlayerSync, this Updater and others) are accepted and installed while it waits, one install at a time. The parked VierLink job runs once the box is empty and idle and no other job is waiting; a second VierLink request still gets 409. Jobs show parked: true while parked. If this Updater updates itself while a VierLink job is parked, that job ends failed with a cancelled reason (jobs live only in the running instance) so VierLink can request it again. AI generated code. 0.1.0.9: Lighter idle work: the once-a-second safety check now reads the game state only while an update job is queued or deferred, the combat/duty/cutscene/crafting part is cached and rebuilt only when a game condition changes, and VierLink is asked about its chat box only for VierLink jobs. Behaviour, statuses and the re-check right before installing are unchanged. AI generated code. 0.1.0.8: VierLink is never updated or reloaded while its chat box has focus or unsent text; the job waits as status deferred, deferReason typing (statusText \"deferred: typing\") and runs once the box has been empty and idle for 30 s. The job view and the xiv_plugin_updated webhook also list deferReasons. Needs VierLink 0.1.7.3 (IPC VierLink.UpdateBlock); older VierLink is not held. AI generated code. 0.1.0.7: Patch-day status board and known-good-only safe mode. The Updater remembers which plugins were loaded and notices when the game version changes; its window then lists every plugin as ok, disabled, outdated or back, with update-pending info. Mark plugins known-good for the current game version (one checkbox each, or all loaded at once). Safe mode turns off every loaded plugin that is not known-good, after you confirm the list in game; Restore turns back on exactly those. This plugin, VierLink, dev plugins and sync clients are never toggled. VierLink can read the board and ask for the confirmation over IPC but cannot toggle anything itself. AI generated code. 0.1.0.6: MareSempiterne (PlayerSync) is no longer on the built-in deny list, so it can be updated once it is added to the allow-list. Dalamud stays denied. The default allow-list is unchanged. AI generated code. 0.1.0.5: After each xiv_plugin_updated webhook, the result (target, ok, status) is also reported to VierLink over IPC (VierLink.WebhookResult, VierLink 0.1.6.4+) so the VierLink status line counts it. Best effort; nothing changes if VierLink is older or not loaded. AI generated code. 0.1.0.4: Allow-list editor fixed and rebuilt: a text box with an Add button (Enter works too), a picker of installed VierAI-repo plugins, and one row per allowed plugin with a Remove button. Duplicates, blank, invalid and never-updated names are refused with a message. A saved list no longer gets VierLink added back on every load, so removing VierLink sticks. Jobs and the activity log are now separate collapsible sections. Larger default and minimum window size, all help text wraps. AI generated code.",
-    "AcceptsFeedback": false,
-    "DownloadLinkInstall": "https://github.com/VierAI/VierLinkUpdater/releases/download/v0.1.0.13-vierai/VierLinkUpdater-0.1.0.13.zip",
-    "DownloadLinkUpdate": "https://github.com/VierAI/VierLinkUpdater/releases/download/v0.1.0.13-vierai/VierLinkUpdater-0.1.0.13.zip",
-    "DownloadLinkTesting": "https://github.com/VierAI/VierLinkUpdater/releases/download/v0.1.0.13-vierai/VierLinkUpdater-0.1.0.13.zip",
     "LastUpdate": 1793052023
   }
 ]
